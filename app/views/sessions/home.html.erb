@@ -1,0 +1,8 @@
+<% if current_user %>
+	 usuario <% current_user.nombre %>
+	 <% link_to "Salir", signout_path %>
+<% else %>
+	<% link_to "Ingresar con twitter", "auth/twitter"%>
+<% end %>
+<h1>Sessions#home</h1>
+<p>Find me in app/views/sessions/home.html.erb</p>

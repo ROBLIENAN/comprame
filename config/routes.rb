@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'sessions/home'
+
   devise_for :users
   resources :publications
 
@@ -9,7 +11,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'publications#index'
-
+  get '/auth/:provider/callback' => 'sessions#auth_callback', :as => :auth_callback
+  get "/signout" => "sessions#destroy", :as => :signout
+  # GET '/users/auth/twitter' =>
+  # get "/auth/:provider/callback" => "sessions#create"
+  # get "/singnout" => "sessions#destroy", as => :signnout
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
