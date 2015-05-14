@@ -1,4 +1,4 @@
-<h1>Listing publications</h1>
+<h1>Publicaciones</h1>
 
 <table>
   <thead>
@@ -16,9 +16,9 @@
         <td><%= publication.precio %></td>
         <td><%= publication.titulo %></td>
         <td><%= publication.descripcion %></td>
-        <td><%= link_to 'Show', publication %></td>
-        <td><%= link_to 'Edit', edit_publication_path(publication) %></td>
-        <td><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', publication %></td>
+        <td><%= link_to 'Editar', edit_publication_path(publication) %></td>
+        <td><%= link_to 'Eliminar', publication, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Publication', new_publication_path %>
+<%= link_to 'Crear nueva publicacion', new_publication_path %>
