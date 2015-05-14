@@ -5,7 +5,6 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
 module YapoCl
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -20,5 +19,6 @@ module YapoCl
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false
+    config.paths['app/views'] << 'app/views/devise'
   end
 end

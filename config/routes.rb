@@ -3,16 +3,24 @@ Rails.application.routes.draw do
 
   get 'sessions/home'
 
-  devise_for :users
   resources :publications
+
+  devise_scope :user do 
+    get '/users/auth/:provider' => "omniauth_callbacks#passthru"
+    post '/users/edit' => 'divise/registrations#edit', :as => 'edit_user_registration'
+  end
+
+  devise_for :users, :controllers => {:omniauth_callbacks => "omniauth_callbacks",
+                                      :registrations => 'registrations'}
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'publications#index'
-  get '/auth/:provider/callback' => 'sessions#auth_callback', :as => :auth_callback
-  get "/signout" => "sessions#destroy", :as => :signout
+  # get '/auth/:provider/callback' => 'sessions#auth_callback', :as => :auth_callback
+  # get "/signout" => "sessions#destroy", :as => :signout
   # GET '/users/auth/twitter' =>
   # get "/auth/:provider/callback" => "sessions#create"
   # get "/singnout" => "sessions#destroy", as => :signnout
