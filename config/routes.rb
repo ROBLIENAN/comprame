@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 
   devise_scope :user do 
     get '/users/auth/:provider' => "omniauth_callbacks#passthru"
-    post '/users/edit' => 'divise/registrations#edit', :as => 'edit_user_registration'
+    get '/users/sign_in' => "devise/sessions#new", :as => 'new_sessions_registration'
+    # get '/users/sign_up' => "devise/registrations#new", :as => 'new_user_registration'
+
+    post '/users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
   end
 
-  devise_for :users, :controllers => {:omniauth_callbacks => "omniauth_callbacks",
-                                      :registrations => 'registrations'}
+  devise_for :users, :controllers => {:omniauth_callbacks => "omniauth_callbacks"}
 
 
   # The priority is based upon order of creation: first created -> highest priority.

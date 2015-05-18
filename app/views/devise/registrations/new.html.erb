@@ -1,5 +1,5 @@
 <h2>Registrar nuevo usuario</h2>
-
+registration_path(resource_name)
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -27,7 +27,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Ingresar" %>
+    <%= f.submit "Creame" %>
   </div>
 <% end %>
 
