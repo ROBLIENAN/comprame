@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_scope :user do 
     get '/users/auth/:provider' => "omniauth_callbacks#passthru"
     get '/users/sign_in' => "devise/sessions#new", :as => 'new_sessions_registration'
-    # get '/users/sign_up' => "devise/registrations#new", :as => 'new_user_registration'
+    #get '/users/sign_up' => "devise/registrations#new", :as => 'new_user_registration'
 
     post '/users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
   end

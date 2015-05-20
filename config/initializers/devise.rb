@@ -10,7 +10,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'rlienan@rebuss.cl'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -234,6 +234,14 @@ Devise.setup do |config|
   # up on your models and hooks.
   require 'omniauth-twitter'
   config.omniauth :twitter, 'IvSPgRHaCCuHiMKxOwrliQs33', 'gFjKXnfqciYSsEU935BCzOEaLH0mCaYf6CGjorE4hFrIACpguT'
+  require 'omniauth-facebook'
+  config.omniauth :facebook, '641126382655193', 'f00b9539a720697ae4fd0f7122c1e485'
+
+
+# Rails.application.config.middleware.use OmniAuth::Builder do
+#   # provider :twitter, " IvSPgRHaCCuHiMKxOwrliQs33", "gFjKXnfqciYSsEU935BCzOEaLH0mCaYf6CGjorE4hFrIACpguT"
+#   provider :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET']
+# end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

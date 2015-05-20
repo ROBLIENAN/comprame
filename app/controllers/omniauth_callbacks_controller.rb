@@ -6,4 +6,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 		#render json: [@user,request.env["omniauth.auth"]]
 	end
 
+	def facebook
+		@user = User.from_omniauth_facebook(request.env["omniauth.auth"])
+		sign_in_and_redirect @user, :event => :authentication
+		#render json: [@user,request.env["omniauth.auth"]]
+	end
+
 end
