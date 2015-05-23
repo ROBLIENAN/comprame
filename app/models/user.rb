@@ -4,14 +4,16 @@ class User < ActiveRecord::Base
   # attr_accessible :nombre , :provider , :uid
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:twitter,:facebook]
-
+         
   def self.from_omniauth_twitter(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider
         user.uid = auth.uid
         user.nombre = auth.info.name
-        # user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
+        user.email = auth.info.nickname + '@ActualizaTuMail.com'
+        user.password = auth.uid
+        user.image = auth.info.image.sub("_normal", "_bigger") 
+        # user.password = Devise.friendly_token[0,20]
       end
   end
 
@@ -21,7 +23,8 @@ class User < ActiveRecord::Base
         user.uid = auth.uid
         user.nombre = auth.info.name
         user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
+        user.password = auth.uid
+        user.image = auth.info.image + '?type=large'
       end
   end
 

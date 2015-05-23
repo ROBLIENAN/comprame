@@ -1,0 +1,30 @@
+<div class="container" >
+<h1>Publicaciones</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Precio</th>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publications.each do |publication| %>
+      <tr>
+        <td><%= publication.precio %></td>
+        <td><%= publication.titulo %></td>
+        <td><%= publication.descripcion %></td>
+        <td><%= link_to 'Ver', publication %></td>
+<!--         <td><%= link_to 'Editar', edit_publication_path(publication) %></td>
+        <td><%= link_to 'Eliminar', publication, method: :delete, data: { confirm: '¿Estas Seguro?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear nueva publicacion', new_publication_path %>
+</div>

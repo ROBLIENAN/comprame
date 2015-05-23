@@ -20,6 +20,8 @@
       	<%- if user_signed_in? %>
         <li class="active"><%=  link_to "Cerrar sesion",destroy_user_session_path, method: :delete %> <span class="sr-only"></span></li>
         <li><%= link_to "Mi perfil",edit_user_registration_path, method: :edit %></li>
+        <p class="navbar-text"><%= current_user.nombre %></p>
+        <!-- <li class="active" ><%= current_user.nombre %><span class="sr-only"></span></li> -->
         <% else %>
         <li class="active"><%= link_to "Ingresar", new_user_session_path %></li>
         <% end %> 

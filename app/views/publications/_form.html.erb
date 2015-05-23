@@ -13,10 +13,6 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :precio %><br>
-      <%= f.text_field :precio %>
-    </div>
-    <div class="field">
       <%= f.label :titulo %><br>
       <%= f.text_field :titulo %>
     </div>
@@ -24,6 +20,15 @@
       <%= f.label :descripcion %><br>
       <%= f.text_area :descripcion %>
     </div>
+    <div class="field">
+      <%= f.label :precio %><br>
+      <%= f.text_field :precio %>
+    </div>
+    <div class="field hide">
+      <%= f.label :email %><br>
+      <%= f.text_field :email ,value: current_user.email %>
+    </div>
+
     <div class="actions">
       <%= f.submit %>
     </div>

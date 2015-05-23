@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150413211542) do
     t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email",  default: "", null: false
   end
 
   create_table "users", force: true do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150413211542) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

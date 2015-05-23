@@ -5,7 +5,7 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-  	render json: params
+  	# render json: params
   end
   
 end
